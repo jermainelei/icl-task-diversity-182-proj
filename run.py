@@ -1,9 +1,13 @@
+import os
 import jax
 from absl import app, flags, logging
 from ml_collections import config_flags
 
 import icl.utils as u
 from icl.train import train
+
+# Force GPU usage for Colab T4
+os.environ['JAX_PLATFORMS'] = 'gpu'
 
 jax.distributed.initialize()
 
